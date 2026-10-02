@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elva Pan — Accounting & Finance Professional Portfolio">
+    <title>Elva Pan · 潘乐 | Portfolio</title>
+
+    <!-- ===== CDN Imports ===== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- ===== Tailwind Custom Config ===== -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF2D78',
+                        'primary-light': '#FF6BA0',
+                        'primary-dark': '#CC1758',
+                        peach: '#B44DFF',
+                        cream: '#4FC3F7',
+                        candy: '#B44DFF',
+                        'text-main': '#E0E0E0',
+                        'text-heading': '#FFFFFF',
+                        'text-light': '#A0A0B0',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ===== Custom Styles ===== -->
+    <style>
+        /* ==================== 🎨 CSS Variables ==================== */
+        :root {
+            /* --- Primary Colors (Neon Pink & Electric Purple) --- */
+            --color-primary: #FF2D78;
+            --color-primary-light: #FF6BA0;
+            --color-primary-dark: #CC1758;
+            --color-primary-bg: rgba(255, 45, 120, 0.08);
+
+            /* --- Accent Colors --- */
+            --color-accent-peach: #B44DFF;
+            --color-accent-cream: #4FC3F7;
+            --color-accent-candy: #B44DFF;
+
+            /* --- Background Colors --- */
+            --color-bg-main: #0D0D0D;
+            --color-bg-card: rgba(255, 255, 255, 0.04);
+            --color-bg-alt: #111118;
+
+            /* --- Text Colors --- */
+            --color-text-primary: #E0E0E0;
+            --color-text-heading: #FFFFFF;
+            --color-text-light: #A0A0B0;
+            --color-text-white: #FFFFFF;
+
+            /* --- Border Radius --- */
+            --radius-sm: 0;
+            --radius-md: 0;
+            --radius-lg: 0;
+            --radius-xl: 0;
+            --radius-full: 2px;
+
+            /* --- Shadows --- */
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.6);
+            --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 45, 120, 0.15);
+            --shadow-nav: 0 1px 0 rgba(255, 255, 255, 0.08);
+
+            /* --- Gradients --- */
+            --gradient-hero: linear-gradient(135deg, #FF2D78 0%, #B44DFF 100%);
+            --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+            --gradient-btn: linear-gradient(135deg, #FF2D78 0%, #B44DFF 100%);
+            --gradient-btn-hover: linear-gradient(135deg, #B44DFF 0%, #FF2D78 100%);
+
+            /* --- Spacing --- */
+            --section-gap: 5rem;
+
+            /* --- Transitions --- */
+            --transition-smooth: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        /* ==================== 🌊 Smooth Scroll ==================== */
+        html {
+            scroll-behavior: smooth;
+            background: var(--color-bg-main);
+        }
+        html.scroll-locked {
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+            color: var(--color-text-primary);
+            background-color: var(--color-bg-main);
+            letter-spacing: 0.03em;
+        }
+
+        /* Subtle grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* ==================== ✨ Keyframe Animations ==================== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 45, 120, 0.3); }
+            50%      { box-shadow: 0 0 25px rgba(180, 77, 255, 0.5); }
+        }
+
+        @keyframes gradientShift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50%      { transform: scale(1.3); opacity: 1; }
+        }
+
+        @keyframes slowPulse {
+            0%, 100% { transform: scale(1); opacity: 0.35; }
+            50%      { transform: scale(1.6); opacity: 0.7; }
+        }
+
+        @keyframes subtleRotate {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes driftGlow {
+            0%, 100% { opacity: 0.35; transform: translate(0, 0) scale(1); }
+            33%      { opacity: 0.8; transform: translate(30px, -15px) scale(1.3); }
+            66%      { opacity: 0.45; transform: translate(-15px, 20px) scale(0.9); }
+        }
+
+        /* ==================== 🎯 Scroll Reveal Classes ==================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.06s; }
+        .reveal-delay-2 { transition-delay: 0.12s; }
+        .reveal-delay-3 { transition-delay: 0.18s; }
+        .reveal-delay-4 { transition-delay: 0.24s; }
+        .reveal-delay-5 { transition-delay: 0.30s; }
+
+        /* ==================== 🌟 Hero Decorations ==================== */
+        .hero-decoration {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.08;
+        }
+        .hero-decoration:nth-child(1) { top: 10%; left: 5%; }
+        .hero-decoration:nth-child(2) { top: 20%; right: 8%; }
+        .hero-decoration:nth-child(3) { bottom: 25%; left: 12%; }
+        .hero-decoration:nth-child(4) { bottom: 15%; right: 5%; }
+        .hero-decoration:nth-child(5) { top: 50%; left: 85%; }
+
+        /* ==================== 🧭 Navbar Styles ==================== */
+        .navbar-glass {
+            background: rgba(13, 13, 13, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-nav);
+        }
+        .navbar-scrolled {
+            background: rgba(13, 13, 13, 0.95);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        .nav-link {
+            position: relative;
+            transition: var(--transition-smooth);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-primary);
+            transition: width 0.25s ease;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link.active {
+            color: var(--color-primary);
+        }
+
+        /* ==================== 🎴 Card Hover Effects ==================== */
+        .card-hover {
+            transition: var(--transition-smooth);
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        /* ==================== 📌 Timeline Styles ==================== */
+        .timeline-dot {
+            animation: breathe 3s ease-in-out infinite;
+            box-shadow: 0 0 0 6px rgba(255, 45, 120, 0.08);
+        }
+        .timeline-dot.dot-peach {
+            box-shadow: 0 0 0 6px rgba(180, 77, 255, 0.1);
+        }
+        .timeline-dot.dot-cream {
+            box-shadow: 0 0 0 6px rgba(79, 195, 247, 0.1);
+        }
+
+        /* ==================== 🏷️ Skill Tag Styles ==================== */
+        .skill-tag {
+            transition: var(--transition-smooth);
+            cursor: default;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .skill-tag:hover {
+            transform: translateY(-1px);
+            border-color: var(--color-primary);
+            box-shadow: 0 0 20px rgba(255, 45, 120, 0.15);
+        }
+
+        /* ==================== 📬 Contact Form Input Styles ==================== */
+        .input-cute {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem 1rem;
+            transition: var(--transition-smooth);
+            outline: none;
+            width: 100%;
+            color: var(--color-text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+        .input-cute:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(255, 45, 120, 0.12);
+        }
+
+        /* ==================== 🔘 Button Styles ==================== */
+        .btn-primary {
+            background: transparent;
+            color: var(--color-text-white);
+            border-radius: var(--radius-sm);
+            padding: 0.7rem 2rem;
+            font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: var(--transition-smooth);
+            display: inline-block;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: none;
+        }
+        .btn-primary:hover {
+            background: var(--gradient-btn);
+            border-color: transparent;
+            box-shadow: 0 0 30px rgba(255, 45, 120, 0.3);
+        }
+
+        /* ==================== 📱 Mobile Menu Styles ==================== */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: rgba(13, 13, 13, 0.98);
+            backdrop-filter: blur(24px);
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* ==================== 🌊 Footer Divider ==================== */
+        .wave-divider {
+            position: relative;
+            height: 1px;
+            overflow: visible;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ==================== 🌸 Scrollbar Styling ==================== */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--color-bg-main); }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+    </style>
+</head>
+<body>
+
+    <!-- ===== 🌸 Module 1: Navigation ===== -->
+    <nav id="navbar" class="navbar-glass fixed top-3 left-3 right-3 md:top-4 md:left-6 md:right-6 z-40 transition-all duration-500 rounded-none md:rounded-none border-2" style="opacity: 0; pointer-events: none; border-color: var(--color-primary);">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="text-xl font-bold flex items-center gap-2" style="color: var(--color-primary-dark);">
+                <span class="text-xl font-light tracking-tighter" style="font-family: 'Space Grotesk', sans-serif;">EP</span>
+                <span id="nav-logo-text">Elva Pan</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8" id="desktop-nav">
+                <a href="#about" class="nav-link text-text-light hover:text-primary transition-all">About</a>
+                <a href="#experience" class="nav-link text-text-light hover:text-primary transition-all">Experience</a>
+                <a href="#skills" class="nav-link text-text-light hover:text-primary transition-all">Skills</a>
+                <a href="#hobbies" class="nav-link text-text-light hover:text-primary transition-all">Hobbies</a>
+                <a href="#achievements" class="nav-link text-text-light hover:text-primary transition-all">Achievements</a>
+                <a href="#contact" class="nav-link text-text-light hover:text-primary transition-all">Contact</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="menu-toggle" class="md:hidden text-2xl p-2" style="color: var(--color-primary-dark);" aria-label="Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="menu-close" class="absolute top-6 right-6 text-3xl" style="color: var(--color-primary-dark);" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#about" class="text-2xl font-semibold mobile-nav-link" style="color: var(--color-text-heading);">About</a>
+        <a href="#experience" class="text-2xl font-semibold mobile-nav-link" style="color: var(--color-text-heading);">Experience</a>
+        <a href="#skills" class="text-2xl font-semibold mobile-nav-link" style="color: var(--color-text-heading);">Skills</a>
+        <a href="#hobbies" class="text-2xl font-semibold mobile-nav-link" style="color: var(--color-text-heading);">Hobbies</a>
+        <a href="#achievements" class="text-2xl font-semibold mobile-nav-link" style="color: var(--color-text-heading);">Achievements</a>
+        <a href="#contact" class="text-2xl font-semibold mobile-nav-link" style="color: var(--color-text-heading);">Contact</a>
+    </div>
+    <!-- ===== 🌸 Module 1 End ===== -->
+
+
+    <!-- ===== 🎀 Module 1.5: Landing Page ===== -->
+    <section id="landing" class="relative min-h-screen flex items-center overflow-hidden" style="background-color: #0D0D0D;">
+
+        <!-- Grid lines decoration -->
+        <div class="absolute inset-0 pointer-events-none z-0" style="opacity: 0.03; background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 80px 80px;"></div>
+
+        <!-- Animated ambient glow -->
+        <div class="absolute pointer-events-none z-0 rounded-full" style="width: 600px; height: 600px; top: -15%; right: -10%; background: radial-gradient(circle, rgba(255,45,120,0.25) 0%, transparent 70%); animation: slowPulse 8s ease-in-out infinite;"></div>
+        <div class="absolute pointer-events-none z-0 rounded-full" style="width: 500px; height: 500px; bottom: -10%; left: -8%; background: radial-gradient(circle, rgba(180,77,255,0.2) 0%, transparent 70%); animation: slowPulse 8s ease-in-out infinite; animation-delay: -4s;"></div>
+        <div class="absolute pointer-events-none z-0 rounded-full" style="width: 250px; height: 250px; top: 40%; left: 50%; background: radial-gradient(circle, rgba(79,195,247,0.15) 0%, transparent 70%); animation: driftGlow 12s ease-in-out infinite;"></div>
+
+        <!-- Main content -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-8 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+
+            <!-- ===== Left: Text Content ===== -->
+            <div class="flex-1 space-y-6 md:space-y-8 reveal reveal-delay-1">
+                <!-- Big title -->
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-none tracking-tighter"
+                    style="color: #FFFFFF; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em;">
+                    Everything<br>
+                    <span class="block mt-3">will be ok</span>
+                </h1>
+
+                <!-- Divider line -->
+                <div class="w-20 md:w-28 h-px" style="background: var(--color-primary);"></div>
+
+                <!-- Subtitle -->
+                <p class="text-lg md:text-xl tracking-widest uppercase" style="color: var(--color-text-light); font-family: 'Space Grotesk', sans-serif; font-weight: 300; letter-spacing: 0.15em;">
+                    Welcome to my world
+                </p>
+
+                <!-- Click here button -->
+                <button id="join-us-btn" onclick="enterSite()"
+                        class="group flex items-center gap-3 px-8 py-3.5 font-medium text-white text-sm tracking-widest uppercase transition-all duration-300"
+                        style="border: 1px solid rgba(255,255,255,0.3); background: transparent; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.15em;"
+                        onmouseenter="this.style.borderColor='#FF2D78'; this.style.boxShadow='0 0 30px rgba(255,45,120,0.3)'; this.style.background='rgba(255,45,120,0.1)';"
+                        onmouseleave="this.style.borderColor='rgba(255,255,255,0.3)'; this.style.boxShadow='none'; this.style.background='transparent';">
+                    Click here
+                    <span class="text-lg transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </button>
+            </div>
+
+            <!-- ===== Right: Geometric Art ===== -->
+            <div class="flex-1 flex items-center justify-center reveal reveal-delay-2">
+                <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-[360px] md:max-w-[420px] h-auto">
+
+                    <!-- Concentric rings -->
+                    <circle cx="210" cy="210" r="160" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                    <circle cx="210" cy="210" r="120" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                    <circle cx="210" cy="210" r="80" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+
+                    <!-- Slowly rotating accent ring -->
+                    <circle cx="210" cy="210" r="140" fill="none" stroke="rgba(255,45,120,0.12)" stroke-width="0.8" stroke-dasharray="30 90"
+                            style="transform-origin: 210px 210px; animation: subtleRotate 60s linear infinite;"/>
+
+                    <!-- Geometric diamond -->
+                    <polygon points="210,70 290,210 210,350 130,210" fill="none" stroke="rgba(255,45,120,0.2)" stroke-width="1.5"/>
+                    <polygon points="210,110 250,210 210,310 170,210" fill="none" stroke="rgba(180,77,255,0.15)" stroke-width="1"/>
+
+                    <!-- Intersecting lines -->
+                    <line x1="50" y1="210" x2="370" y2="210" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                    <line x1="210" y1="30" x2="210" y2="390" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+                    <!-- Small accent circles -->
+                    <circle cx="210" cy="110" r="4" fill="#FF2D78" opacity="0.6"/>
+                    <circle cx="210" cy="310" r="4" fill="#B44DFF" opacity="0.6"/>
+                    <circle cx="110" cy="210" r="4" fill="#4FC3F7" opacity="0.6"/>
+                    <circle cx="310" cy="210" r="4" fill="#4FC3F7" opacity="0.6"/>
+
+                    <!-- Corner brackets -->
+                    <path d="M60 100 L60 60 L100 60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+                    <path d="M320 60 L360 60 L360 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+                    <path d="M60 320 L60 360 L100 360" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+                    <path d="M320 360 L360 360 L360 320" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+
+                    <!-- Glowing center dot -->
+                    <circle cx="210" cy="210" r="3" fill="#FF2D78" opacity="0.8">
+                        <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+
+                </svg>
+            </div>
+        </div>
+
+        <!-- Bottom subtle text -->
+        <div class="absolute bottom-8 left-0 right-0 text-center z-10">
+            <p class="text-xs tracking-widest uppercase" style="color: var(--color-text-light); opacity: 0.4; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.2em;">
+                Click the button above to explore
+            </p>
+        </div>
+
+    </section>
+    <!-- ===== 🎀 Module 1.5 End ===== -->
+
+
+    <!-- ===== 🌟 Module 2: Hero Banner ===== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background-color: #0D0D0D;">
+
+        <!-- Geometric accent lines -->
+        <div class="hero-decoration" style="top: 8%; left: 10%; width: 60px; height: 1px; background: rgba(255,45,120,0.3);"></div>
+        <div class="hero-decoration" style="top: 15%; right: 15%; width: 40px; height: 40px; border: 1px solid rgba(180,77,255,0.2);"></div>
+        <div class="hero-decoration" style="bottom: 20%; left: 15%; width: 30px; height: 30px; border: 1px solid rgba(79,195,247,0.2);"></div>
+        <div class="hero-decoration" style="bottom: 30%; right: 10%; width: 50px; height: 1px; background: rgba(255,45,120,0.25);"></div>
+        <div class="hero-decoration" style="top: 45%; left: 5%; width: 20px; height: 20px; border: 1px solid rgba(255,255,255,0.08); transform: rotate(45deg);"></div>
+
+        <!-- Hero Main Content -->
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <!-- Avatar Placeholder — geometric monogram -->
+            <div class="mx-auto mb-8 w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center reveal"
+                 style="border: 1px solid rgba(255,255,255,0.15);">
+                <span class="text-3xl sm:text-4xl font-light tracking-tighter" style="color: var(--color-primary); font-family: 'Space Grotesk', sans-serif;">EP</span>
+            </div>
+
+            <!-- Greeting -->
+            <p class="text-sm sm:text-base mb-2 reveal reveal-delay-1 tracking-widest uppercase" style="color: var(--color-text-light); font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.2em; font-weight: 300;">
+                Hi, I'm
+            </p>
+
+            <!-- Name (gradient text) -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 reveal reveal-delay-2"
+                style="background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 200% 200%; animation: gradientShift 4s ease-in-out infinite; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em;">
+                潘乐 <span style="font-weight: 300;">·</span> Elva Pan
+            </h1>
+
+            <!-- Tagline -->
+            <p class="text-lg sm:text-xl md:text-2xl mb-3 reveal reveal-delay-3" style="color: var(--color-text-heading); font-weight: 300; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.04em;">
+                Connecting the world through numbers · Creating value with professionalism
+            </p>
+
+            <!-- Subtitle -->
+            <p class="text-sm sm:text-base mb-8 reveal reveal-delay-3" style="color: var(--color-text-light); max-width: 560px; margin-left: auto; margin-right: auto; font-weight: 300;">
+                Overseas Finance Specialist · Bachelor of Accounting · Incoming MSc Student at Uppsala University<br class="hidden sm:block">
+                ACCA Candidate · IELTS 7.0 · Embracing challenges, exploring the world
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap gap-4 justify-center reveal reveal-delay-4">
+                <a href="#about" class="btn-primary">
+                    Learn More
+                </a>
+                <a href="#contact" class="btn-primary">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll hint -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-xs reveal reveal-delay-5 tracking-widest uppercase" style="color: var(--color-text-light); opacity: 0.5; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.2em;">
+            Scroll to explore
+            <div class="mx-auto mt-2 w-4 h-4 border-r border-b border-white/20 transform rotate-45"></div>
+        </div>
+    </section>
+    <!-- ===== 🌟 Module 2 End ===== -->
+
+
+    <!-- ===== 💐 Module 3: About Me ===== -->
+    <section id="about" class="relative py-32 md:py-40 px-6 flex items-center" style="background-color: #0A0A0F;">
+        <!-- Subtle grid -->
+        <div class="absolute inset-0 pointer-events-none opacity-[0.025]" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto w-full">
+            <!-- Section Heading -->
+            <div class="mb-20 reveal">
+                <span class="block mb-4 w-8 h-px" style="background: var(--color-primary);"></span>
+                <h2 class="text-xl font-light tracking-widest uppercase" style="color: var(--color-text-light); font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.2em;">About Me</h2>
+            </div>
+
+            <!-- Quote: The Moon Over the Mountain -->
+            <div class="space-y-10 md:space-y-14 reveal reveal-delay-1">
+                <!-- Large decorative bracket -->
+                <div class="flex items-start gap-6 md:gap-10">
+                    <span class="text-6xl md:text-8xl font-thin leading-none flex-shrink-0" style="color: var(--color-primary); font-family: 'Space Grotesk', sans-serif; opacity: 0.3;">&ldquo;</span>
+
+                    <div class="space-y-8 md:space-y-12">
+                        <!-- Chinese -->
+                        <p class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light"
+                           style="color: #FFFFFF; font-family: 'Space Grotesk', 'PingFang SC', 'Microsoft YaHei', sans-serif; letter-spacing: 0.05em; line-height: 2.1;">
+                            我深怕自己本非美玉，<br>故而不敢加以刻苦琢磨；<br>却又半信自己是块美玉，<br>故又不肯庸庸碌碌，与瓦砾为伍。
+                        </p>
+
+                        <!-- Divider -->
+                        <div class="flex items-center gap-4">
+                            <span class="block w-12 md:w-20 h-px" style="background: rgba(255,255,255,0.15);"></span>
+                            <span class="block w-1.5 h-1.5" style="background: var(--color-primary);"></span>
+                        </div>
+
+                        <!-- English -->
+                        <p class="text-base sm:text-lg md:text-xl font-light leading-relaxed"
+                           style="color: var(--color-text-light); font-family: 'Inter', sans-serif; letter-spacing: 0.06em; line-height: 1.8; max-width: 640px;">
+                            I was afraid I was not a fine piece of jade,<br>and therefore dared not polish myself through hard work;<br>yet I half believed I was,<br>and therefore would not mingle with common clay.
+                        </p>
+
+                        <!-- Attribution -->
+                        <div class="flex items-center gap-3">
+                            <span class="block w-6 h-px" style="background: rgba(255,255,255,0.1);"></span>
+                            <p class="text-xs md:text-sm tracking-widest uppercase"
+                               style="color: var(--color-text-light); opacity: 0.45; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.18em;">
+                                From <i>Sangetsuki</i> (The Moon Over the Mountain) by Nakajima Atsushi
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== 💐 Module 3 End ===== -->
+
+
+    <!-- ===== 📋 Module 4: Experience & Education Timeline ===== -->
+    <section id="experience" class="py-20 px-6" style="background-color: var(--color-bg-alt);">
+        <div class="max-w-4xl mx-auto">
+
+            <!-- Section Heading -->
+            <div class="text-center mb-16 reveal">
+                <span class="block mb-3 mx-auto w-8 h-px" style="background: var(--color-primary);"></span>
+                <h2 class="text-3xl sm:text-4xl font-bold" style="color: var(--color-text-heading);">Experience & Education</h2>
+                <div class="mt-3 mx-auto w-20 h-1 rounded-none" style="background: var(--gradient-hero);"></div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative">
+                <!-- Center line (desktop) -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2 rounded-none" style="background: linear-gradient(to bottom, var(--color-primary-light), var(--color-accent-peach), var(--color-primary-light));"></div>
+                <!-- Left line (mobile) -->
+                <div class="md:hidden absolute left-6 top-0 bottom-0 w-0.5 rounded-none" style="background: linear-gradient(to bottom, var(--color-primary-light), var(--color-accent-peach), var(--color-primary-light));"></div>
+
+                <div class="space-y-10">
+                    <!-- Timeline Item 1 -->
+                    <div class="relative flex flex-col md:flex-row items-start reveal">
+                        <div class="hidden md:flex w-1/2 justify-end pr-14">
+                            <div class="card-hover p-6 rounded-none text-right" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                                <span class="inline-block px-3 py-1 rounded-none text-xs font-semibold mb-2" style="background: rgba(168,213,186,0.20); color: var(--color-primary-dark);">2026.08 → 2028.06</span>
+                                <h3 class="text-xl font-bold" style="color: var(--color-text-heading);">Uppsala University 🇸🇪</h3>
+                                <p class="font-semibold" style="color: var(--color-primary-dark);">MSc Accounting & Financial Management</p>
+                                <p class="text-sm mt-2" style="color: var(--color-text-light);">Sweden · World Top 100 University</p>
+                            </div>
+                        </div>
+                        <div class="timeline-dot absolute left-[22px] md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 rounded-none z-10" style="background: var(--color-primary); top: 28px;"></div>
+                        <div class="md:hidden pl-14 w-full">
+                            <div class="card-hover p-6 rounded-none" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                                <span class="inline-block px-3 py-1 rounded-none text-xs font-semibold mb-2" style="background: rgba(168,213,186,0.20); color: var(--color-primary-dark);">2026.08 → 2028.06</span>
+                                <h3 class="text-xl font-bold" style="color: var(--color-text-heading);">Uppsala University 🇸🇪</h3>
+                                <p class="font-semibold" style="color: var(--color-primary-dark);">MSc Accounting & Financial Management</p>
+                                <p class="text-sm mt-2" style="color: var(--color-text-light);">Accounting and Financial Management · Sweden</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="relative flex flex-col md:flex-row items-start reveal">
+                        <div class="hidden md:flex w-1/2 justify-end pr-14">
+                            <!-- Spacer: content shows on right -->
+                        </div>
+                        <div class="timeline-dot dot-peach absolute left-[22px] md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 rounded-none z-10" style="background: var(--color-accent-peach); top: 28px;"></div>
+                        <div class="md:w-1/2 md:pl-14 pl-14 md:pl-14 w-full">
+                            <div class="card-hover p-6 rounded-none" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                                <span class="inline-block px-3 py-1 rounded-none text-xs font-semibold mb-2" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">2024.06 → 2026.03</span>
+                                <h3 class="text-xl font-bold" style="color: var(--color-text-heading);">Overseas Finance Specialist 🇺🇬</h3>
+                                <p class="font-semibold" style="color: var(--color-primary-dark);">Henan Guoji Industrial Co., Ltd. · GUOJI GROUP</p>
+                                <p class="text-sm mt-2" style="color: var(--color-text-light);">Uganda · End-to-end finance for 3 real estate projects</p>
+                                <ul class="mt-3 space-y-1 text-sm" style="color: var(--color-text-primary);">
+                                    <li>💰 Managed 13 bank accounts — daily cash flow monitoring, receipt, transfer & payment operations</li>
+                                    <li>💱 Handled currency exchange, foreign exchange gains/losses, and cross-border fund allocation</li>
+                                    <li>📊 Prepared weekly reports, monthly budgets, sales summaries & cumulative payment tracking</li>
+                                    <li>🧾 Processed payroll, withholding tax, social security, and liaised with banks, tax authorities & suppliers</li>
+                                    <li>📋 Took over full accountant responsibilities including fund planning & budget coordination</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="relative flex flex-col md:flex-row items-start reveal">
+                        <div class="hidden md:flex w-1/2 justify-end pr-14">
+                            <div class="card-hover p-6 rounded-none text-right" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                                <span class="inline-block px-3 py-1 rounded-none text-xs font-semibold mb-2" style="background: rgba(180,77,255,0.12); color: #B44DFF;">2024.03 → 2024.05</span>
+                                <h3 class="text-xl font-bold" style="color: var(--color-text-heading);">Audit Assistant</h3>
+                                <p class="font-semibold" style="color: var(--color-primary-dark);">Lixin Zhonglian Certified Public Accountants</p>
+                                <p class="text-sm mt-2" style="color: var(--color-text-light);">China · Annual audit of a Tianjin municipal government project</p>
+                                <ul class="mt-3 space-y-1 text-sm" style="color: var(--color-text-primary);">
+                                    <li>Organized, numbered & bound year-end audit materials; prepared audit working paper catalog</li>
+                                    <li>Verified contract amounts & settlement amounts; checked opening/closing balances</li>
+                                    <li>Prepared comprehensive notes and documented audit findings</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-dot dot-cream absolute left-[22px] md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 rounded-none z-10" style="background: var(--color-accent-cream); top: 28px;"></div>
+                        <div class="md:hidden pl-14 w-full">
+                            <div class="card-hover p-6 rounded-none" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                                <span class="inline-block px-3 py-1 rounded-none text-xs font-semibold mb-2" style="background: rgba(180,77,255,0.12); color: #B44DFF;">2024.03 → 2024.05</span>
+                                <h3 class="text-xl font-bold" style="color: var(--color-text-heading);">Audit Assistant</h3>
+                                <p class="font-semibold" style="color: var(--color-primary-dark);">Lixin Zhonglian Certified Public Accountants</p>
+                                <p class="text-sm mt-2" style="color: var(--color-text-light);">China · Annual audit of a Tianjin municipal government project</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="relative flex flex-col md:flex-row items-start reveal">
+                        <div class="hidden md:flex w-1/2 justify-end pr-14">
+                            <!-- Spacer -->
+                        </div>
+                        <div class="timeline-dot absolute left-[22px] md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 rounded-none z-10" style="background: var(--color-primary-light); top: 28px;"></div>
+                        <div class="md:w-1/2 md:pl-14 pl-14 md:pl-14 w-full">
+                            <div class="card-hover p-6 rounded-none" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                                <span class="inline-block px-3 py-1 rounded-none text-xs font-semibold mb-2" style="background: rgba(168,213,186,0.20); color: var(--color-primary-dark);">2020.09 → 2024.06</span>
+                                <h3 class="text-xl font-bold" style="color: var(--color-text-heading);">Bachelor of Accounting 🎓</h3>
+                                <p class="font-semibold" style="color: var(--color-primary-dark);">Civil Aviation University of China</p>
+                                <p class="text-sm mt-2" style="color: var(--color-text-light);">Multiple scholarships & innovation competition awards</p>
+                                <ul class="mt-3 space-y-1 text-sm" style="color: var(--color-text-primary);">
+                                    <li>🗣️ Debate Club — Group Leader · 3× Champion · Best Debater</li>
+                                    <li>🎵 Chinese Orchestra — Bamboo Flute (Dizi) · Wind Band Member</li>
+                                    <li>🏃‍♀️ Sports Department — Event planning & team coordination</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== 📋 Module 4 End ===== -->
+
+
+    <!-- ===== ✨ Module 5: Professional Skills ===== -->
+    <section id="skills" class="py-20 px-6" style="background-color: var(--color-bg-card);">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Section Heading -->
+            <div class="text-center mb-16 reveal">
+                <span class="block mb-3 mx-auto w-8 h-px" style="background: var(--color-primary);"></span>
+                <h2 class="text-3xl sm:text-4xl font-bold" style="color: var(--color-text-heading);">Professional Skills</h2>
+                <div class="mt-3 mx-auto w-20 h-1 rounded-none" style="background: var(--gradient-hero);"></div>
+            </div>
+
+            <!-- Skill Tag Cloud -->
+            <div class="flex flex-wrap justify-center gap-3 mb-16 reveal">
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(168,213,186,0.22); color: var(--color-primary-dark);">📊 Financial Statement Analysis</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">💰 Fund Management</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(180,77,255,0.12); color: #B44DFF;">📋 Budget Control</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">🖥️ Yonyou U8 ERP</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(168,213,186,0.22); color: var(--color-primary-dark);">🔍 Audit & Assurance</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">📝 Bookkeeping & Reporting</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(180,77,255,0.12); color: #B44DFF;">💱 Foreign Exchange</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">📈 Advanced Excel</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(168,213,186,0.22); color: var(--color-primary-dark);">🧾 Tax Planning</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">🏗️ Project Financial Management</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(180,77,255,0.12); color: #B44DFF;">📋 ACCA (6/13)</span>
+                <span class="skill-tag px-5 py-2.5 rounded-none text-sm font-semibold" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">💻 Microsoft Office</span>
+            </div>
+
+            <!-- Language & Certifications -->
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5 reveal">
+                <div class="card-hover p-6 rounded-none text-center" style="background: var(--color-bg-main); box-shadow: var(--shadow-card);">
+                    <span class="text-4xl block mb-3">🇬🇧</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">IELTS 7.0</h4>
+                    <p class="text-sm mt-1" style="color: var(--color-text-light);">No band below 6.5</p>
+                </div>
+                <div class="card-hover p-6 rounded-none text-center" style="background: var(--color-bg-main); box-shadow: var(--shadow-card);">
+                    <span class="text-4xl block mb-3">📝</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">CET-6</h4>
+                    <p class="text-sm mt-1" style="color: var(--color-text-light);">College English Test Band 6</p>
+                </div>
+                <div class="card-hover p-6 rounded-none text-center" style="background: var(--color-bg-main); box-shadow: var(--shadow-card);">
+                    <span class="text-4xl block mb-3">🎯</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">GMAT 615</h4>
+                    <p class="text-sm mt-1" style="color: var(--color-text-light);">Graduate Management Admission Test</p>
+                </div>
+                <div class="card-hover p-6 rounded-none text-center" style="background: var(--color-bg-main); box-shadow: var(--shadow-card);">
+                    <span class="text-4xl block mb-3">🏅</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">ACCA</h4>
+                    <p class="text-sm mt-1" style="color: var(--color-text-light);">6 papers passed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== ✨ Module 5 End ===== -->
+
+
+    <!-- ===== 🎨 Module 6: Hobbies ===== -->
+    <section id="hobbies" class="py-20 px-6" style="background-color: var(--color-bg-alt);">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Section Heading -->
+            <div class="text-center mb-16 reveal">
+                <span class="block mb-3 mx-auto w-8 h-px" style="background: var(--color-primary);"></span>
+                <h2 class="text-3xl sm:text-4xl font-bold" style="color: var(--color-text-heading);">Beyond the Spreadsheet</h2>
+                <div class="mt-3 mx-auto w-20 h-1 rounded-none" style="background: var(--gradient-hero);"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="card-hover p-6 rounded-none text-center reveal reveal-delay-1" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                    <span class="text-5xl block mb-4">✈️</span>
+                    <h4 class="font-bold text-lg mb-2" style="color: var(--color-text-heading);">Travel & Exploration</h4>
+                    <p class="text-sm" style="color: var(--color-text-light);">My time in Uganda sparked a love for exploring new cultures. Next stop: Scandinavia 🇸🇪</p>
+                </div>
+                <div class="card-hover p-6 rounded-none text-center reveal reveal-delay-2" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                    <span class="text-5xl block mb-4">🗣️</span>
+                    <h4 class="font-bold text-lg mb-2" style="color: var(--color-text-heading);">Debate</h4>
+                    <p class="text-sm" style="color: var(--color-text-light);">CAUC Debate Team Leader · 3× Champion · Best Debater awards 🏆</p>
+                </div>
+                <div class="card-hover p-6 rounded-none text-center reveal reveal-delay-3" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                    <span class="text-5xl block mb-4">📚</span>
+                    <h4 class="font-bold text-lg mb-2" style="color: var(--color-text-heading);">Reading & Learning</h4>
+                    <p class="text-sm" style="color: var(--color-text-light);">Avid reader of business and finance books — lifelong learning is my mantra 📖</p>
+                </div>
+                <div class="card-hover p-6 rounded-none text-center reveal reveal-delay-1" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                    <span class="text-5xl block mb-4">🎵</span>
+                    <h4 class="font-bold text-lg mb-2" style="color: var(--color-text-heading);">Chinese Orchestra</h4>
+                    <p class="text-sm" style="color: var(--color-text-light);">Wind band member · Won 1st prize at Tianjin Municipal Art Exhibition 🏅</p>
+                </div>
+                <div class="card-hover p-6 rounded-none text-center reveal reveal-delay-2" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                    <span class="text-5xl block mb-4">🎵</span>
+                    <h4 class="font-bold text-lg mb-2" style="color: var(--color-text-heading);">Music</h4>
+                    <p class="text-sm" style="color: var(--color-text-light);">Nothing beats unwinding with good music after a long day 🎧</p>
+                </div>
+                <div class="card-hover p-6 rounded-none text-center reveal reveal-delay-3" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                    <span class="text-5xl block mb-4">🏃‍♀️</span>
+                    <h4 class="font-bold text-lg mb-2" style="color: var(--color-text-heading);">Fitness</h4>
+                    <p class="text-sm" style="color: var(--color-text-light);">Staying active keeps both my body and mind sharp 💪</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== 🎨 Module 6 End ===== -->
+
+
+    <!-- ===== 🏆 Module 7: Achievements Gallery ===== -->
+    <section id="achievements" class="py-20 px-6" style="background-color: var(--color-bg-card);">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Section Heading -->
+            <div class="text-center mb-16 reveal">
+                <span class="block mb-3 mx-auto w-8 h-px" style="background: var(--color-primary);"></span>
+                <h2 class="text-3xl sm:text-4xl font-bold" style="color: var(--color-text-heading);">Honors & Achievements</h2>
+                <div class="mt-3 mx-auto w-20 h-1 rounded-none" style="background: var(--gradient-hero);"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Achievement Card -->
+                <div class="card-hover p-6 rounded-none reveal reveal-delay-1" style="background: rgba(255,255,255,0.03); box-shadow: var(--shadow-card); border-left: 1px solid var(--color-primary);">
+                    <span class="text-4xl block mb-3">🥇</span>
+                    <span class="inline-block px-2 py-0.5 rounded-none text-xs font-semibold mb-2" style="background: rgba(168,213,186,0.20); color: var(--color-primary-dark);">2022</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">Gold Award — "Mingde Cup" & "Internet+"</h4>
+                    <p class="text-sm mt-2" style="color: var(--color-text-light);">Innovation & Entrepreneurship Competition · CAUC</p>
+                </div>
+
+                <div class="card-hover p-6 rounded-none reveal reveal-delay-2" style="background: rgba(255,255,255,0.03); box-shadow: var(--shadow-card); border-left: 1px solid var(--color-accent-peach);">
+                    <span class="text-4xl block mb-3">🎖️</span>
+                    <span class="inline-block px-2 py-0.5 rounded-none text-xs font-semibold mb-2" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">2023</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">5th Place — "Chuangqingchun" Competition</h4>
+                    <p class="text-sm mt-2" style="color: var(--color-text-light);">10th Hunan Youth Innovation & Entrepreneurship Competition</p>
+                </div>
+
+                <div class="card-hover p-6 rounded-none reveal reveal-delay-3" style="background: rgba(255,255,255,0.03); box-shadow: var(--shadow-card); border-left: 1px solid var(--color-accent-candy);">
+                    <span class="text-4xl block mb-3">📜</span>
+                    <span class="inline-block px-2 py-0.5 rounded-none text-xs font-semibold mb-2" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">2022</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">Carbon Information Disclosure Research</h4>
+                    <p class="text-sm mt-2" style="color: var(--color-text-light);">University-level innovation project on carbon reporting in civil aviation</p>
+                </div>
+
+                <div class="card-hover p-6 rounded-none reveal reveal-delay-1" style="background: rgba(255,255,255,0.03); box-shadow: var(--shadow-card); border-left: 1px solid var(--color-primary);">
+                    <span class="text-4xl block mb-3">🎓</span>
+                    <span class="inline-block px-2 py-0.5 rounded-none text-xs font-semibold mb-2" style="background: rgba(168,213,186,0.20); color: var(--color-primary-dark);">2021 & 2023</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">Merit Scholarship (Third Class) ×2</h4>
+                    <p class="text-sm mt-2" style="color: var(--color-text-light);">Civil Aviation University of China · Academic Excellence</p>
+                </div>
+
+                <div class="card-hover p-6 rounded-none reveal reveal-delay-2" style="background: rgba(255,255,255,0.03); box-shadow: var(--shadow-card); border-left: 1px solid var(--color-accent-peach);">
+                    <span class="text-4xl block mb-3">📝</span>
+                    <span class="inline-block px-2 py-0.5 rounded-none text-xs font-semibold mb-2" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">2023</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">Published Research Paper</h4>
+                    <p class="text-sm mt-2" style="color: var(--color-text-light);">Carbon Information Disclosure in Civil Aviation — Wisdom Orient, Issue 18</p>
+                </div>
+
+                <div class="card-hover p-6 rounded-none reveal reveal-delay-3" style="background: rgba(255,255,255,0.03); box-shadow: var(--shadow-card); border-left: 1px solid var(--color-accent-candy);">
+                    <span class="text-4xl block mb-3">🗣️</span>
+                    <span class="inline-block px-2 py-0.5 rounded-none text-xs font-semibold mb-2" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">2021-2023</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">Debate Team Champion ×3</h4>
+                    <p class="text-sm mt-2" style="color: var(--color-text-light);">CAUC Debate Team Leader · Best Debater · Organized Tianjin municipal competitions</p>
+                </div>
+
+                <div class="card-hover p-6 rounded-none reveal reveal-delay-1" style="background: rgba(255,255,255,0.03); box-shadow: var(--shadow-card); border-left: 1px solid var(--color-primary);">
+                    <span class="text-4xl block mb-3">🎵</span>
+                    <span class="inline-block px-2 py-0.5 rounded-none text-xs font-semibold mb-2" style="background: rgba(168,213,186,0.20); color: var(--color-primary-dark);">2020</span>
+                    <h4 class="font-bold text-lg" style="color: var(--color-text-heading);">Tianjin Art Exhibition — 1st Prize</h4>
+                    <p class="text-sm mt-2" style="color: var(--color-text-light);">CAUC Chinese Orchestra · Wind Band Member · Group performance award</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== 🏆 Module 7 End ===== -->
+
+
+    <!-- ===== 💌 Module 8: Contact ===== -->
+    <section id="contact" class="py-20 px-6" style="background-color: var(--color-bg-alt);">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Section Heading -->
+            <div class="text-center mb-16 reveal">
+                <span class="block mb-3 mx-auto w-8 h-px" style="background: var(--color-primary);"></span>
+                <h2 class="text-3xl sm:text-4xl font-bold" style="color: var(--color-text-heading);">Get in Touch</h2>
+                <div class="mt-3 mx-auto w-20 h-1 rounded-none" style="background: var(--gradient-hero);"></div>
+                <p class="mt-4" style="color: var(--color-text-light);">I'd love to connect! Whether it's a career opportunity, collaboration, or just a friendly hello 👋</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Left: Contact Details -->
+                <div class="space-y-6 reveal reveal-delay-1">
+                    <div class="card-hover p-5 rounded-none flex items-center gap-4" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                        <div class="w-12 h-12 rounded-none flex items-center justify-center text-xl flex-shrink-0" style="background: rgba(168,213,186,0.22); color: var(--color-primary-dark);">
+                            📧
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold" style="color: var(--color-text-light);">Email</p>
+                            <p class="font-medium" style="color: var(--color-text-heading);">albionyu1360@163.com</p>
+                        </div>
+                    </div>
+
+                    <div class="card-hover p-5 rounded-none flex items-center gap-4" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                        <div class="w-12 h-12 rounded-none flex items-center justify-center text-xl flex-shrink-0" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">
+                            📱
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold" style="color: var(--color-text-light);">Phone</p>
+                            <p class="font-medium" style="color: var(--color-text-heading);">+86 18143090852</p>
+                        </div>
+                    </div>
+
+                    <div class="card-hover p-5 rounded-none flex items-center gap-4" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                        <div class="w-12 h-12 rounded-none flex items-center justify-center text-xl flex-shrink-0" style="background: rgba(180,77,255,0.12); color: #B44DFF;">
+                            📍
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold" style="color: var(--color-text-light);">Location</p>
+                            <p class="font-medium" style="color: var(--color-text-heading);">China · Soon heading to Uppsala, Sweden</p>
+                        </div>
+                    </div>
+
+                    <div class="card-hover p-5 rounded-none flex items-center gap-4" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                        <div class="w-12 h-12 rounded-none flex items-center justify-center text-xl flex-shrink-0" style="background: rgba(255,45,120,0.12); color: #FF6BA0;">
+                            💬
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold" style="color: var(--color-text-light);">QQ</p>
+                            <p class="font-medium" style="color: var(--color-text-heading);">alphin.yue@qq.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form (display only) -->
+                <div class="reveal reveal-delay-2">
+                    <div class="p-8 rounded-none" style="background: var(--color-bg-card); box-shadow: var(--shadow-card);">
+                        <h3 class="text-xl font-bold mb-6" style="color: var(--color-text-heading);">📝 Leave a Message</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label class="text-sm font-semibold mb-1 block" style="color: var(--color-text-primary);">Your Name</label>
+                                <input type="text" placeholder="Enter your name" class="input-cute" id="form-name">
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold mb-1 block" style="color: var(--color-text-primary);">Email Address</label>
+                                <input type="email" placeholder="Enter your email" class="input-cute" id="form-email">
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold mb-1 block" style="color: var(--color-text-primary);">Message</label>
+                                <textarea rows="4" placeholder="What's on your mind?" class="input-cute" id="form-message"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full text-center">
+                                🌸 Send Message
+                            </button>
+                        </form>
+                        <p class="text-xs text-center mt-4" style="color: var(--color-text-light);">
+                            📬 This is a display form — please reach out via email or phone above!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== 💌 Module 8 End ===== -->
+
+
+    <!-- ===== 🌱 Module 9: Footer ===== -->
+    <footer style="background: #0A0A0F; color: white; border-top: 1px solid rgba(255,255,255,0.06);">
+        <!-- Wave Divider -->
+        <div class="wave-divider"></div>
+
+        <div class="max-w-5xl mx-auto px-6 py-12 text-center">
+            <!-- Geometric decorations -->
+            <div class="flex justify-center gap-6 mb-6">
+                <span style="display: block; width: 6px; height: 6px; background: #FF2D78; opacity: 0.6;"></span>
+                <span style="display: block; width: 6px; height: 6px; background: #B44DFF; opacity: 0.6;"></span>
+                <span style="display: block; width: 6px; height: 6px; background: #4FC3F7; opacity: 0.6;"></span>
+            </div>
+
+            <p class="text-lg font-semibold mb-3" style="color: rgba(255,255,255,0.95);">
+                Making the world a little more organized, one number at a time 🌱
+            </p>
+            <p class="text-sm mb-4" style="color: rgba(255,255,255,0.75);">
+                Thanks for stopping by — may your day be filled with warmth and joy ☀️
+            </p>
+
+            <!-- Social Links -->
+            <div class="flex justify-center gap-4 mb-6 text-xl">
+                <a href="mailto:albionyu1360@163.com" class="w-10 h-10 rounded-none flex items-center justify-center transition-all duration-300"
+                   style="background: rgba(255,255,255,0.15); color: white;"
+                   onmouseenter="this.style.background='rgba(255,255,255,0.3)'; this.style.transform='scale(1.15)';"
+                   onmouseleave="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='scale(1)';">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-none flex items-center justify-center transition-all duration-300"
+                   style="background: rgba(255,255,255,0.15); color: white;"
+                   onmouseenter="this.style.background='rgba(255,255,255,0.3)'; this.style.transform='scale(1.15)';"
+                   onmouseleave="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='scale(1)';">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-none flex items-center justify-center transition-all duration-300"
+                   style="background: rgba(255,255,255,0.15); color: white;"
+                   onmouseenter="this.style.background='rgba(255,255,255,0.3)'; this.style.transform='scale(1.15)';"
+                   onmouseleave="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='scale(1)';">
+                    <i class="fa-brands fa-weixin"></i>
+                </a>
+            </div>
+
+            <div class="text-sm" style="color: rgba(255,255,255,0.6);">
+                <p>© 2026 潘乐 Elva Pan · Made with ❤️ & 🌸</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ===== 🌱 Module 9 End ===== -->
+
+
+    <!-- ===== 📦 Module 10: Data Layer & Interaction Logic ===== -->
+    <script>
+        // ==================== 📋 Central Site Data ====================
+        // 💡 Edit this object to update all site text — no HTML changes needed!
+        const siteData = {
+            site: {
+                name: 'Elva Pan',
+                nameCN: '潘乐',
+                fullName: 'Yue Pan',
+                title: 'Overseas Finance Specialist · B.Acc · Incoming MSc at Uppsala',
+                tagline: 'Connecting the world through numbers · Creating value with professionalism',
+                favicon: '🌿'
+            },
+
+            nav: [
+                { label: 'About',       icon: '🌸', href: '#about' },
+                { label: 'Experience',  icon: '📋', href: '#experience' },
+                { label: 'Skills',      icon: '✨', href: '#skills' },
+                { label: 'Hobbies',     icon: '🎨', href: '#hobbies' },
+                { label: 'Achievements',icon: '🏆', href: '#achievements' },
+                { label: 'Contact',     icon: '💌', href: '#contact' }
+            ],
+
+            hero: {
+                greeting: "👋 Hi, I'm",
+                taglineShort: 'Connecting the world through numbers · Creating value with professionalism',
+                subtitle: 'Overseas Finance Specialist · Bachelor of Accounting · Incoming MSc Student at Uppsala University',
+                cta1: '✨ Learn More',
+                cta2: '💌 Get in Touch'
+            },
+
+            contact: {
+                email: 'albionyu1360@163.com',
+                phone: '+86 18143090852',
+                location: 'China · Soon heading to Uppsala, Sweden',
+                qq: 'alphin.yue@qq.com'
+            },
+
+            footer: {
+                message: 'Making the world a little more organized, one number at a time 🌱',
+                subMessage: "Thanks for stopping by — may your day be filled with warmth and joy ☀️",
+                copyright: '© 2026 潘乐 Elva Pan · Made with ❤️ & 🌸'
+            }
+        };
+
+        // siteData can be used to dynamically update page content
+
+        // ==================== 📱 Mobile Menu Logic ====================
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // ==================== 🧭 Navbar Scroll Effects ====================
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function updateNavOnScroll() {
+            // Deepen background on scroll
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+
+            // Highlight current section's nav link
+            const sections = ['about', 'experience', 'skills', 'hobbies', 'achievements', 'contact'];
+            let currentSection = '';
+
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 150 && rect.bottom >= 150) {
+                        currentSection = id;
+                    }
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+
+            // If scrolled to bottom, highlight last link
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks[navLinks.length - 1].classList.add('active');
+            }
+        }
+
+        window.addEventListener('scroll', updateNavOnScroll);
+
+        // ==================== 👁️ Intersection Observer — Scroll Reveal ====================
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.15
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target); // Fire only once
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // ==================== 📬 Contact Form Handler ====================
+        const contactForm = document.getElementById('contact-form');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value.trim();
+            const email = document.getElementById('form-email').value.trim();
+            const message = document.getElementById('form-message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('🌸 Please fill in all fields before sending!');
+                return;
+            }
+
+            // Display-only form — show a friendly alert
+            alert('💌 Thank you for your message, ' + name + '!\n\nThis is a display form — please reach out directly at:\n📧 albionyu1360@163.com\n📱 +86 18143090852\n\nLooking forward to connecting! 🌸');
+            contactForm.reset();
+        });
+
+        // ==================== 🚪 Landing Page Entry ====================
+        let scrollUnlocked = false;
+
+        function blockScroll(e) {
+            if (scrollUnlocked) return;
+            // Block wheel
+            if (e.type === 'wheel') { e.preventDefault(); return; }
+            // Block touchmove
+            if (e.type === 'touchmove') { e.preventDefault(); return; }
+            // Block keyboard scroll keys
+            if (e.type === 'keydown') {
+                const keys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space', 'PageUp', 'PageDown', 'Home', 'End'];
+                if (keys.includes(e.code)) { e.preventDefault(); return; }
+            }
+        }
+
+        function enterSite() {
+            if (scrollUnlocked) return;
+            scrollUnlocked = true;
+            // Unlock scrolling
+            document.documentElement.classList.remove('scroll-locked');
+            // Show navbar
+            const navbar = document.getElementById('navbar');
+            navbar.style.opacity = '1';
+            navbar.style.pointerEvents = 'auto';
+            // Smooth scroll to Hero
+            document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+            // Update nav state after scroll completes
+            setTimeout(updateNavOnScroll, 800);
+        }
+
+        // ==================== 🎬 Page Load Initialization ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+
+            // Lock scroll on landing page
+            document.documentElement.classList.add('scroll-locked');
+            window.addEventListener('wheel', blockScroll, { passive: false });
+            window.addEventListener('touchmove', blockScroll, { passive: false });
+            window.addEventListener('keydown', blockScroll);
+
+            // If URL has a hash (direct link to a section), skip landing lock
+            if (window.location.hash && window.location.hash !== '#landing') {
+                scrollUnlocked = true;
+                document.documentElement.classList.remove('scroll-locked');
+                navbar.style.opacity = '1';
+                navbar.style.pointerEvents = 'auto';
+                setTimeout(() => {
+                    const target = document.querySelector(window.location.hash);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }, 300);
+            }
+
+            // Trigger nav state check on load
+            updateNavOnScroll();
+
+            // Add click interaction to Hero avatar
+            const avatarEl = document.querySelector('#hero .rounded-none');
+            if (avatarEl) {
+                avatarEl.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.1) rotate(10deg)';
+                    setTimeout(() => { this.style.transform = 'scale(1) rotate(0deg)'; }, 300);
+                });
+                avatarEl.style.cursor = 'pointer';
+                avatarEl.style.transition = 'transform 0.3s ease';
+            }
+
+            console.log('🌸 Elva Pan Portfolio ready!');
+            console.log('💡 Tip: Edit the siteData object in <script> to update content');
+            console.log('🎨 Tip: Edit :root CSS variables in <style> to change colors');
+        });
+    </script>
+    <!-- ===== 📦 Module 10 End ===== -->
+
+</body>
+</html>
